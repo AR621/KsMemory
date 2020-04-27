@@ -18,5 +18,6 @@ public:
 	void SetId(int);
 	void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 	sf::RectangleShape passcard();
+	void setPosition(float,float);
 };
 #endif

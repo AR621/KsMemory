@@ -17,8 +17,9 @@ public:
 	int GetBoardWidth();
 	void SetBoardWidth(int);
 	void Generate_Board(gamestate);
-	void Display_Board(int);
+	void Debug(int);
 	void draw(sf::RenderTarget& target, sf::RenderStates states) const;
-	
+	std::vector<card> ReturnBoard();
+	int ClickCheck(int, int, int);
 };
 #endif

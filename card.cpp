@@ -43,3 +43,8 @@ sf::RectangleShape card::passcard()
 {
 	return this->Card;
 }
+
+void card::setPosition(float x, float y)
+{
+	this->Card.setPosition(x, y);
+}
