@@ -1,6 +1,7 @@
 #include "gamestate.h"
 #include <iostream>
 #include <ctime>
+#include <SFML/Graphics.hpp>
 
 gamestate::gamestate()
 {
@@ -61,3 +62,4 @@ void gamestate::SetNumOfCards(int new_value)
 {
 	this->num_of_cards = new_value;
 }
+

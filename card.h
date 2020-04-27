@@ -8,6 +8,7 @@ class card : public sf::Drawable
 private:
 	int id;
 	bool revealed;
+	sf::RectangleShape Card;
 public:
 	card();
 	~card();
@@ -16,5 +17,6 @@ public:
 	int GetId();
 	void SetId(int);
 	void draw(sf::RenderTarget& target, sf::RenderStates states) const;
+	sf::RectangleShape passcard();
 };
 #endif

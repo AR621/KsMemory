@@ -2,6 +2,7 @@
 #include "card.h"
 #include "gamestate.h"
 #include <iostream>
+#include <SFML/Graphics.hpp>
 
 int gameboard::GetBoardWidth()
 {
@@ -30,3 +31,5 @@ void gameboard::Display_Board(int num_of_cards)
 			std::cout << std::endl;
 	}
 }
+
+void gameboard::draw(sf::RenderTarget& target, sf::RenderStates states) const{}

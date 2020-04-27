@@ -10,11 +10,12 @@
 int main()
 {
 	sf::RenderWindow window(sf::VideoMode(1400,800), "KsMemory ALPHA");
-	sf::RectangleShape card(sf::Vector2f(120.0f,180.0f));
+	window.setFramerateLimit(30);
 	gamestate gamestate;
 	gameboard gameboard;
 	gameboard.Generate_Board(gamestate);
 	gameboard.Display_Board(gamestate.GetNumOfCards());
+	card card;
 	while (window.isOpen())
 	{
 		sf::Event event;
@@ -28,7 +29,7 @@ int main()
 			}
 		}
 		window.draw(card);
-		window.display();
+		window.display();	
 	}
 	return 0;
 }
