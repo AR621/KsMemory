@@ -6,22 +6,22 @@
 card::card()
 {
 	card::id = -1;
-	card::revealed = false;
+	card::state = 0;
 	Card = sf::RectangleShape(sf::Vector2f(120.0f, 180.0f));
 	Card.setFillColor(sf::Color(123,123,0));
 }
 
-card::~card()
-{}
+card::~card(){}
 
-bool card::GetState()
+int card::GetState()
 {
-	return revealed;
+	return state;
 }
 
 void card::reveal()
 {
-	this->revealed = true;
+	this->state = 1;	
+	Card.setFillColor(sf::Color(50,50,50));
 }
 
 int card::GetId()

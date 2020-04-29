@@ -27,12 +27,18 @@ int main()
 				break;
 			//Clicks
 			case sf::Event::MouseButtonPressed:
-				sf::Vector2i Position = sf::Mouse::getPosition(window);
-				//std::cout << Position.x << " : " << Position.y;
-				int ClickedId = gameboard.ClickCheck(gamestate.GetNumOfCards(), Position.x, Position.y);
-				gameboard.ReturnBoard().at(ClickedId).reveal();
-				break;
+				if (gamestate.state() == 0)
+				{
+					sf::Vector2i Position = sf::Mouse::getPosition(window);
+					int ClickedCardNum = gameboard.ClickCheck(gamestate.GetNumOfCards(), Position.x, Position.y);	
+					if (ClickedCardNum >= 0 && ClickedCardNum < 30)
+						gameboard.reveal(ClickedCardNum);
+					gamestate.CheckGameState(gameboard);
+					gamestate.SaveRevealedCardId(gameboard.ReturnBoard().at(ClickedCardNum).GetId());
+				}
 			}
+			if (gamestate.state() == 1)
+				std::cout << "  :" << gamestate.CheckCards() << ":  ";
 		}
 		//Display
 		window.clear();

@@ -3,11 +3,11 @@
 
 #include <vector>
 #include <SFML/Graphics.hpp>
+#include "card.h"
 
-class card;
 class gamestate;
 
-class gameboard : public sf::Drawable
+class gameboard : public card
 {
 private:
 	int BoardWidth = 10;
@@ -21,5 +21,6 @@ public:
 	void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 	std::vector<card> ReturnBoard();
 	int ClickCheck(int, int, int);
+	void reveal(int);
 };
 #endif

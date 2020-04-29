@@ -1,14 +1,15 @@
 #include "gamestate.h"
 #include <iostream>
 #include <ctime>
-#include <SFML/Graphics.hpp>
+#include "gameboard.h"
 
 gamestate::gamestate()
 {
 	for (int i = 0; i < num_of_cards; i++)
 		gamestate::unique_id_pool[i] = 2;
-	game_won = false;
 	roll_count = 1;
+	GameState = 0;
+	CurrentlyRevealed = 0;
 	std::cout << "gamestate successfully initialised\n";
 }
 
@@ -63,3 +64,48 @@ void gamestate::SetNumOfCards(int new_value)
 	this->num_of_cards = new_value;
 }
 
+void gamestate::CheckGameState(gameboard Board)
+{
+	this->CurrentlyRevealed = 0;
+	for (int i = 0; i < num_of_cards; i++)
+	{
+	int CardState = Board.ReturnBoard().at(i).GetState();
+		if (CardState != 2)
+		{
+			if (CurrentlyRevealed == 2)
+				this->GameState = 1;
+			else if (CardState == 1)
+				this->CurrentlyRevealed++;
+			else
+				this->GameState = 0;
+		}
+		else
+			this->GameState = 2;
+	}
+}
+
+int gamestate::state()
+{
+	return this->GameState;
+}
+
+void gamestate::SaveRevealedCardId(int CardId)
+{
+	this->RevealedIds.push_back(CardId);
+}
+
+bool gamestate::CheckCards()
+{
+	if (RevealedIds.at(0) == RevealedIds.at(1))
+		{
+			RevealedIds.clear(); 
+			this->GameState = 0;
+			return true;
+		}
+	else
+		{
+			RevealedIds.clear(); 
+			this->GameState = 0;
+			return false;
+		}
+}

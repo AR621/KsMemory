@@ -1,12 +1,18 @@
 #ifndef GAMESTATE_H_
 #define GAMESTATE_H_
 
+#include <vector>
+
+class gameboard;
+
 class gamestate {
 private:
 	int unique_id_pool[29];
 	int roll_count;
 	int num_of_cards = 30;
-	bool game_won;	
+	int CurrentlyRevealed;
+	int GameState; //0 - Default ;1 - Card check;2 - Game won
+	std::vector<int> RevealedIds;
 public:
 	gamestate();
 	~gamestate();
@@ -16,5 +22,9 @@ public:
 	int Generate_Id();
 	int GetNumOfCards();
 	void SetNumOfCards(int);
+	void CheckGameState(gameboard);
+	int state();
+	void SaveRevealedCardId(int);
+	bool CheckCards();
 };
 #endif

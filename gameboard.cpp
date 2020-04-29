@@ -56,7 +56,11 @@ int gameboard::ClickCheck(int num_of_cards, int x, int y)
 				((y > (j + 1) * 30 + j * 180) && (y < (j + 1) * (30 + 180)))  
 		)
 				return i + j * 10;
-				//std::cout << ":Clicked card number " << i + j * 10 << std::endl;
-	}
+		}
 	return -1;
+}
+
+void gameboard::reveal(int CardNum)
+{
+	board.at(CardNum).reveal();
 }

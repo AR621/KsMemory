@@ -7,12 +7,12 @@ class card : public sf::Drawable
 {
 private:
 	int id;
-	bool revealed;
+	int state; //0 - hidden; 1 - revealed; 2 - keep revealed
 	sf::RectangleShape Card;
 public:
 	card();
 	~card();
-	bool GetState();
+	int GetState();
 	void reveal();
 	int GetId();
 	void SetId(int);
