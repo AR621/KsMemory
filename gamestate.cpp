@@ -89,23 +89,25 @@ int gamestate::state()
 	return this->GameState;
 }
 
-void gamestate::SaveRevealedCardId(int CardId)
+void gamestate::SaveRevealedCard(int CardId)
 {
-	this->RevealedIds.push_back(CardId);
+	this->RevealedIds.push_back(CardId
+);
 }
 
 bool gamestate::CheckCards()
 {
 	if (RevealedIds.at(0) == RevealedIds.at(1))
 		{
-			RevealedIds.clear(); 
 			this->GameState = 0;
+			RevealedIds.clear(); 
+
 			return true;
 		}
 	else
 		{
-			RevealedIds.clear(); 
 			this->GameState = 0;
+			RevealedIds.clear(); 
 			return false;
 		}
 }

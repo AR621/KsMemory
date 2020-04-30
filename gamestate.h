@@ -2,10 +2,10 @@
 #define GAMESTATE_H_
 
 #include <vector>
+#include "gameboard.h"
 
-class gameboard;
-
-class gamestate {
+class gamestate 
+{
 private:
 	int unique_id_pool[29];
 	int roll_count;
@@ -24,7 +24,7 @@ public:
 	void SetNumOfCards(int);
 	void CheckGameState(gameboard);
 	int state();
-	void SaveRevealedCardId(int);
+	void SaveRevealedCard(int);
 	bool CheckCards();
 };
 #endif

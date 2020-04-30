@@ -13,6 +13,7 @@ private:
 	int BoardWidth = 10;
 	std::vector<card> board;
 	gamestate *state_ptr;
+	std::vector<int> RevealedNum;
 public:
 	int GetBoardWidth();
 	void SetBoardWidth(int);
@@ -21,6 +22,8 @@ public:
 	void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 	std::vector<card> ReturnBoard();
 	int ClickCheck(int, int, int);
+	void SaveRevealedCard(int);
 	void reveal(int);
+	void resolve(bool);
 };
 #endif

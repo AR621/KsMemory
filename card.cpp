@@ -8,7 +8,8 @@ card::card()
 	card::id = -1;
 	card::state = 0;
 	Card = sf::RectangleShape(sf::Vector2f(120.0f, 180.0f));
-	Card.setFillColor(sf::Color(123,123,0));
+	back.loadFromFile("Back.PNG");
+	Card.setTexture(&back);
 }
 
 card::~card(){}
@@ -22,6 +23,17 @@ void card::reveal()
 {
 	this->state = 1;	
 	Card.setFillColor(sf::Color(50,50,50));
+}
+
+void card::hide()
+{
+	this->state = 0;
+	Card.setFillColor(sf::Color(123,123,0));
+}
+
+void card::keep()
+{
+	this->state = 2;
 }
 
 int card::GetId()

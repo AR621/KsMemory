@@ -60,7 +60,28 @@ int gameboard::ClickCheck(int num_of_cards, int x, int y)
 	return -1;
 }
 
+void gameboard::SaveRevealedCard(int CardNum)
+{
+	this->RevealedNum.push_back(CardNum);
+}
+
 void gameboard::reveal(int CardNum)
 {
 	board.at(CardNum).reveal();
+}
+
+void gameboard::resolve(bool CardMatch)
+{
+	if (CardMatch == false)
+	{
+		for (int i = 0; i < 2; i++)
+			board.at(RevealedNum.at(i)).hide();
+		this->RevealedNum.clear();
+	}
+	else
+	{
+		for (int i = 0; i < 2; i++)
+			board.at(RevealedNum.at(i)).keep();
+		this->RevealedNum.clear();
+	}
 }
