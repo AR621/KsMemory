@@ -25,5 +25,6 @@ public:
 	void SaveRevealedCard(int);
 	void reveal(int);
 	void resolve(bool);
+	void LoadTextures(gamestate);
 };
 #endif

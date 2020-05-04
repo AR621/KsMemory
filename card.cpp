@@ -8,8 +8,6 @@ card::card()
 	card::id = -1;
 	card::state = 0;
 	Card = sf::RectangleShape(sf::Vector2f(120.0f, 180.0f));
-	back.loadFromFile("Back.PNG");
-	Card.setTexture(&back);
 }
 
 card::~card(){}
@@ -22,18 +20,19 @@ int card::GetState()
 void card::reveal()
 {
 	this->state = 1;	
-	Card.setFillColor(sf::Color(50,50,50));
+	Card.setTexture(&Texture);
 }
 
 void card::hide()
 {
 	this->state = 0;
-	Card.setFillColor(sf::Color(123,123,0));
+	Card.setTexture(&backTex);
 }
 
 void card::keep()
 {
 	this->state = 2;
+	Card.setTexture(&Texture);
 }
 
 int card::GetId()
@@ -46,17 +45,22 @@ void card::SetId(int new_id)
 	this->id = new_id;
 }
 
-void card::draw(sf::RenderTarget& target, sf::RenderStates states) const
-{
-	target.draw (Card, states);
-}
+void card::draw(sf::RenderTarget& target, sf::RenderStates states) const{}
 
-sf::RectangleShape card::passcard()
+void card::drawCard(sf::RenderWindow &window)
 {
-	return this->Card;
+	window.draw(Card);
 }
 
 void card::setPosition(float x, float y)
 {
 	this->Card.setPosition(x, y);
+}
+
+void card::LoadTextures()
+{
+	backTex.loadFromFile("Textures/Back.png");
+	std::string path = "Textures/card" + std::to_string(id) + ".png";
+	Texture.loadFromFile(path);
+	Card.setTexture(&backTex);
 }

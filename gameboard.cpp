@@ -85,3 +85,9 @@ void gameboard::resolve(bool CardMatch)
 		this->RevealedNum.clear();
 	}
 }
+
+void gameboard::LoadTextures(gamestate gamestate)
+{
+	for (int i = 0; i < gamestate.GetNumOfCards(); i++)
+		this->board.at(i).LoadTextures();
+}

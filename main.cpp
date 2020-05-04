@@ -12,6 +12,7 @@ int main()
 	gamestate gamestate;
 	gameboard gameboard;
 	gameboard.Generate_Board(gamestate);
+	gameboard.LoadTextures(gamestate);
 	gameboard.Debug(gamestate.GetNumOfCards());
 	while (window.isOpen())
 	{
@@ -40,12 +41,12 @@ int main()
 		//Display
 		window.clear();
 		for (int i = 0; i < gamestate.GetNumOfCards(); i++)
-			window.draw(gameboard.ReturnBoard().at(i));
+			gameboard.ReturnBoard().at(i).drawCard(window);
 		window.display();
-		//StateChecl
+		//StateCheck
 		if (gamestate.state() == 1)
 		{
-			std::this_thread::sleep_for(std::chrono::seconds(2));
+			std::this_thread::sleep_for(std::chrono::milliseconds(625));
 			gameboard.resolve(gamestate.CheckCards());
 		}
 	}
