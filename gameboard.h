@@ -21,7 +21,7 @@ public:
 	void Debug(int);
 	void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 	std::vector<card> ReturnBoard();
-	int ClickCheck(int, int, int);
+	int ClickCheck(int, int, int, float[]);
 	void SaveRevealedCard(int);
 	void reveal(int);
 	void resolve(bool);

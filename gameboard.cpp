@@ -45,15 +45,16 @@ std::vector<card> gameboard::ReturnBoard()
 	return this->board;
 }
 
-int gameboard::ClickCheck(int num_of_cards, int x, int y)
+int gameboard::ClickCheck(int num_of_cards, int x, int y, float dimensions[])
 {
+	float Rx = dimensions[0] / dimensions[2], Ry = dimensions[1] / dimensions[3];//Screen to view ratio for transforming clickable area sizes
 	for(int j = 0; j < num_of_cards / BoardWidth; j++)	
 		for(int i = 0; i < BoardWidth; i++)
 		{
 			if(
-				((x > 30 + i * 25 + i * 120) && (x < 30 + i * 25 + (i + 1) * 120))
+				((x > 30*Rx + i * 25*Rx + i * 120*Rx) && (x < 30*Rx + i * 25*Rx + (i + 1) * 120*Rx))
 				&&
-				((y > (j + 1) * 30 + j * 180) && (y < (j + 1) * (30 + 180)))  
+				((y > (j + 1) * 30*Ry + j * 180*Ry) && (y < (j + 1) * (30*Ry + 180*Ry)))  
 		)
 				return i + j * 10;
 		}
