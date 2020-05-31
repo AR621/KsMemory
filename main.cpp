@@ -11,7 +11,7 @@ int main()
 	bool menuScreen = true;
 	//Handling window
 	float dimensions[4] = { 1024.0, 600.0, 1480.0, dimensions[1] * dimensions[2] / dimensions[0] };//dimensions [0] and [1] are window x and y sizes. dimensions [2] and [3] are view x and y sizes;
-	sf::RenderWindow window(sf::VideoMode(dimensions[0], dimensions[1]), "KsMemory ALPHA");//, sf::Style::Fullscreen);
+	sf::RenderWindow window(sf::VideoMode(dimensions[0], dimensions[1]), "KsMemory");
 	sf::View view(sf::FloatRect(0, 0, dimensions[2], dimensions[3]));
 	window.setView(view);
 	window.setFramerateLimit(60);
@@ -38,8 +38,6 @@ int main()
 					break;
 				case sf::Event::MouseButtonPressed:
 					sf::Vector2i Position = sf::Mouse::getPosition(window);
-					dimensions[0]= window.getSize().x;
-					dimensions[1]= window.getSize().y;
 					int playerChoice;
 					switch (menu.MenuClickCheck(Position.x, Position.y, dimensions))
 					{
@@ -63,19 +61,24 @@ int main()
 					break;
 				//Clicks
 				case sf::Event::MouseButtonPressed:
-					if (gamestate.state() == 0);
-					{
-						sf::Vector2i Position;
-						Position.x = 0;
-						Position.y = 0;
-					 	Position = sf::Mouse::getPosition(window);
+					{	
+						sf::Vector2i Position = sf::Mouse::getPosition(window);
 						int ClickedCardNum = gameboard.ClickCheck(gamestate.GetNumOfCards() , Position.x, Position.y, dimensions);	
 						if (ClickedCardNum >= 0 && ClickedCardNum < 30)
 						{
 							gameboard.reveal(ClickedCardNum);
 							gamestate.SaveRevealedCard(gameboard.ReturnBoard().at(ClickedCardNum).GetId());
 							gameboard.SaveRevealedCard(ClickedCardNum);
-							gamestate.CheckGameState(gameboard);
+						}
+					}
+					if (gamestate.state() == 2)
+					{
+						sf::Vector2i Position = sf::Mouse::getPosition(window);
+						if (menu.EndClickCheck(Position.x, Position.y, dimensions))
+						{
+							menu.ToMenu();
+							gamestate.ResetGame();
+							break;
 						}
 					}
 				case sf::Event::KeyPressed:
@@ -105,7 +108,7 @@ int main()
 		//Display
 		if (menu.IsInMenu())
 		{
-			//Menu
+			//Menu display
 			window.clear();
 			window.draw(menu.Title());
 			window.draw(menu.Welcome());
@@ -117,24 +120,37 @@ int main()
 			{
 				gameboard.Generate_Board(gamestate);
 				gameboard.LoadTextures(gamestate);
-				gameboard.Debug(gamestate.GetNumOfCards());
+				gamestate.GamestateReset();
 			}
 		}
-		else
+		else 
 		{
-			//Game
-			window.clear();
-			for (int i = 0; i < gamestate.GetNumOfCards(); i++)
-				gameboard.ReturnBoard().at(i).drawCard(window);
-			window.display();
-		
-			//StateCheck
-			if (gamestate.state() == 1)
+			if (gamestate.state() == !2)
 			{
-				std::this_thread::sleep_for(std::chrono::milliseconds(425));
-				gameboard.resolve(gamestate.CheckCards());
+				//Game display
+				window.clear();
+				for (int i = 0; i < gamestate.GetNumOfCards(); i++)
+					gameboard.ReturnBoard().at(i).drawCard(window);
+				window.display();
+				//StateCheck
+				gamestate.CheckGameState(gameboard);
+				if (gamestate.state() == 1)
+				{
+					std::this_thread::sleep_for(std::chrono::milliseconds(625));
+					gameboard.resolve(gamestate.CheckCards());
+				}
+			}
+			else
+			{
+				//End screen
+				window.draw(menu.EndMsg());
+				menu.setScore(gamestate.getScore());
+				window.draw(menu.Score());
+				window.draw(menu.Return2Menu());
+				window.display();
 			}
 		}
+		
 	}
 	return 0;
 }

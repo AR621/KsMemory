@@ -8,14 +8,21 @@
 class menu
 {
 private:
-	sf::RectangleShape Popup;
-	sf::Texture Popuptxt;
-	bool displayMenu;
+	//Menu
 	sf::Font font;
 	sf::Text title;
 	sf::Text welcome;
 	sf::Text play;
 	sf::Text exit;
+	//Popup
+	sf::Texture Popuptxt;
+	sf::RectangleShape Popup;
+	bool displayMenu;
+	//Game won screen	
+	sf::Text winMsg;
+	std::string scoreMsg; 
+	sf::Text score;
+	sf::Text return2Menu;
 public:
 	menu();
 	~menu();
@@ -23,12 +30,17 @@ public:
 	sf::Text Welcome();
 	sf::Text Play();
 	sf::Text Exit();
+	sf::Text EndMsg();
+	sf::Text Score();
+	sf::Text Return2Menu();
+	void setScore(int);
 	bool IsInMenu();
 	void ToMenu();
 	void StartGame();
-	int MenuClickCheck(int, int, float[3]);
 	void drawPopup(sf::RenderWindow&);
+	int MenuClickCheck(int, int, float[3]);
 	int PopupClickCheck(int, int, float[3]);
+	int EndClickCheck(int, int, float[3]);
 };
 #endif
 

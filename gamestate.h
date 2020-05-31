@@ -12,11 +12,14 @@ private:
 	int roll_count;
 	int num_of_cards = 30;
 	int CurrentlyRevealed;
+	int RevealedPairs = 0;
 	int GameState; //0 - Default ;1 - Card check;2 - Game won
 	std::vector<int> RevealedIds;
+	int NumbOfCompares;
 public:
 	gamestate();
 	~gamestate();
+	void GamestateReset();
 	bool Check_If_Id_Free(int);
 	void Decrement(int);
 	int GetRoll_count();
@@ -29,5 +32,6 @@ public:
 	bool CheckCards();
 	bool ToReset();
 	void ResetGame();
+	int getScore();
 };
 #endif

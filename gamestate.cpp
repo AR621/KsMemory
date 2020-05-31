@@ -11,10 +11,16 @@ gamestate::gamestate()
 	roll_count = 1;
 	GameState = 0;
 	CurrentlyRevealed = 0;
+	NumbOfCompares = 0;
 	std::cout << "gamestate successfully initialised\n";
 }
 
 gamestate::~gamestate(){}
+
+void gamestate::GamestateReset()
+{
+	this->GameState = 0;
+}
 
 bool gamestate::Check_If_Id_Free(int id)
 {
@@ -67,7 +73,9 @@ void gamestate::SetNumOfCards(int new_value)
 
 void gamestate::CheckGameState(gameboard Board)
 {
-	if (CurrentlyRevealed == 2)
+	if (RevealedPairs == 15)
+		this->GameState = 2;
+	else if (CurrentlyRevealed == 2)
 		GameState = 1;
 }
 
@@ -84,20 +92,20 @@ void gamestate::SaveRevealedCard(int CardId)
 
 bool gamestate::CheckCards()
 {
+	this->GameState = 0;
+	CurrentlyRevealed = 0;
+	NumbOfCompares++;
 	if (RevealedIds.at(0) == RevealedIds.at(1))
-		{
-			this->GameState = 0;
-			RevealedIds.clear(); 
-			CurrentlyRevealed = 0;
-			return true;
-		}
+	{
+		RevealedPairs++;
+		RevealedIds.clear(); 
+		return true;
+	}
 	else
-		{
-			this->GameState = 0;
-			RevealedIds.clear(); 
-			CurrentlyRevealed = 0;
-			return false;
-		}
+	{
+		RevealedIds.clear(); 
+		return false;
+	}
 }
 
 bool gamestate::ToReset()
@@ -115,3 +123,7 @@ void gamestate::ResetGame()
 	restart = true;
 }
 
+int gamestate::getScore()
+{
+	return NumbOfCompares;
+}
