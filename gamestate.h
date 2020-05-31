@@ -7,6 +7,7 @@
 class gamestate 
 {
 private:
+	bool restart;
 	int unique_id_pool[29];
 	int roll_count;
 	int num_of_cards = 30;
@@ -26,5 +27,7 @@ public:
 	int state();
 	void SaveRevealedCard(int);
 	bool CheckCards();
+	bool ToReset();
+	void ResetGame();
 };
 #endif

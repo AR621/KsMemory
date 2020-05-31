@@ -59,8 +59,10 @@ void card::setPosition(float x, float y)
 
 void card::LoadTextures()
 {
-	backTex.loadFromFile("Res/Textures/Back.png");
+	if(!backTex.loadFromFile("Res/Textures/Back.png"))
+		printf("Error while loeading card back texture.\n");
 	std::string path = "Res/Textures/card" + std::to_string(id) + ".png";
-	Texture.loadFromFile(path);
+	if(!Texture.loadFromFile(path))
+		printf("Error while loeading card texture.\n");
 	Card.setTexture(&backTex);
 }

@@ -4,9 +4,13 @@
 #include <vector>
 #include <SFML/Graphics.hpp>
 
+
 class menu
 {
 private:
+	sf::RectangleShape Popup;
+	sf::Texture Popuptxt;
+	bool displayMenu;
 	sf::Font font;
 	sf::Text title;
 	sf::Text welcome;
@@ -19,7 +23,12 @@ public:
 	sf::Text Welcome();
 	sf::Text Play();
 	sf::Text Exit();
+	bool IsInMenu();
+	void ToMenu();
+	void StartGame();
+	int MenuClickCheck(int, int, float[3]);
+	void drawPopup(sf::RenderWindow&);
+	int PopupClickCheck(int, int, float[3]);
 };
 #endif
-
 

@@ -5,6 +5,7 @@
 
 gamestate::gamestate()
 {
+	restart = true;
 	for (int i = 0; i < num_of_cards; i++)
 		gamestate::unique_id_pool[i] = 2;
 	roll_count = 1;
@@ -110,4 +111,19 @@ bool gamestate::CheckCards()
 			RevealedIds.clear(); 
 			return false;
 		}
+}
+
+bool gamestate::ToReset()
+{
+	if (restart == true)
+	{
+		restart = false;
+		return true;
+	}
+	return false;
+}
+
+void gamestate::ResetGame()
+{
+	restart = true;
 }

@@ -47,7 +47,8 @@ std::vector<card> gameboard::ReturnBoard()
 
 int gameboard::ClickCheck(int num_of_cards, int x, int y, float dimensions[])
 {
-	float Rx = dimensions[0] / dimensions[2], Ry = dimensions[1] / dimensions[3];//Screen to view ratio for transforming clickable area sizes
+	float Rx = dimensions[0] / dimensions[2], Ry = dimensions[1] / dimensions[3];
+	//Screen to view ratio for transforming clickable area sizes in case of a window resize
 	for(int j = 0; j < num_of_cards / BoardWidth; j++)	
 		for(int i = 0; i < BoardWidth; i++)
 		{
