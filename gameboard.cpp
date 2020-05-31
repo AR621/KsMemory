@@ -57,7 +57,11 @@ int gameboard::ClickCheck(int num_of_cards, int x, int y, float dimensions[])
 				&&
 				((y > (j + 1) * 30*Ry + j * 180*Ry) && (y < (j + 1) * (30*Ry + 180*Ry)))  
 		)
-				return i + j * 10;
+			{
+				int ClickedId = i + j * 10;
+				if (board.at(ClickedId).GetState() == 0)
+					return ClickedId;
+			}
 		}
 	return -1;
 }
@@ -93,3 +97,4 @@ void gameboard::LoadTextures(gamestate gamestate)
 	for (int i = 0; i < gamestate.GetNumOfCards(); i++)
 		this->board.at(i).LoadTextures();
 }
+

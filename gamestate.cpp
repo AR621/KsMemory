@@ -114,3 +114,4 @@ void gamestate::ResetGame()
 {
 	restart = true;
 }
+

@@ -16,9 +16,6 @@ int main()
 	window.setView(view);
 	window.setFramerateLimit(60);
 
-	//Updating window dimensions in case of resize
-	dimensions[0]= window.getSize().x;
-	dimensions[1]= window.getSize().y;
 	//Initialising menu
 	menu menu;
 	//Initialising game
@@ -27,6 +24,9 @@ int main()
 
 	while (window.isOpen())
 	{
+		//Updating window dimensions in case of resize
+		dimensions[0] = window.getSize().x;
+		dimensions[1] = window.getSize().y;
 		sf::Event event;
 		if (menu.IsInMenu())
 			while (window.pollEvent(event))
