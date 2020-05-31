@@ -66,14 +66,16 @@ int main()
 					if (gamestate.state() == 0);
 					{
 						sf::Vector2i Position;
+						Position.x = 0;
+						Position.y = 0;
 					 	Position = sf::Mouse::getPosition(window);
 						int ClickedCardNum = gameboard.ClickCheck(gamestate.GetNumOfCards() , Position.x, Position.y, dimensions);	
 						if (ClickedCardNum >= 0 && ClickedCardNum < 30)
 						{
 							gameboard.reveal(ClickedCardNum);
-							gamestate.CheckGameState(gameboard);
 							gamestate.SaveRevealedCard(gameboard.ReturnBoard().at(ClickedCardNum).GetId());
 							gameboard.SaveRevealedCard(ClickedCardNum);
+							gamestate.CheckGameState(gameboard);
 						}
 					}
 				case sf::Event::KeyPressed:

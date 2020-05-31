@@ -67,22 +67,8 @@ void gamestate::SetNumOfCards(int new_value)
 
 void gamestate::CheckGameState(gameboard Board)
 {
-	this->CurrentlyRevealed = 0;
-	for (int i = 0; i < num_of_cards; i++)
-	{
-	int CardState = Board.ReturnBoard().at(i).GetState();
-		if (CardState != 2)
-		{
-			if (CurrentlyRevealed == 2)
-				this->GameState = 1;
-			else if (CardState == 1)
-				this->CurrentlyRevealed++;
-			else
-				this->GameState = 0;
-		}
-		else
-			this->GameState = 2;
-	}
+	if (CurrentlyRevealed == 2)
+		GameState = 1;
 }
 
 int gamestate::state()
@@ -92,8 +78,8 @@ int gamestate::state()
 
 void gamestate::SaveRevealedCard(int CardId)
 {
-	this->RevealedIds.push_back(CardId
-);
+	CurrentlyRevealed++;
+	this->RevealedIds.push_back(CardId);
 }
 
 bool gamestate::CheckCards()
@@ -102,13 +88,14 @@ bool gamestate::CheckCards()
 		{
 			this->GameState = 0;
 			RevealedIds.clear(); 
-
+			CurrentlyRevealed = 0;
 			return true;
 		}
 	else
 		{
 			this->GameState = 0;
 			RevealedIds.clear(); 
+			CurrentlyRevealed = 0;
 			return false;
 		}
 }
