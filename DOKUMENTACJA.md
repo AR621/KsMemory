@@ -27,19 +27,23 @@ oraz oknem programu które inicjalizowane jest w głównym pliku main.cpp.
 
 Klasa **menu.h**
 ```
-Klasa menu.h odpowiada za wyświetlanie menu głównego, "popupu" podczas gry z opcjami powrotu do menu oraz wyjścia gry i finalnego okna po skończeniu gry.
+Klasa menu.h odpowiada za wyświetlanie menu głównego, "popupu" podczas gry z opcjami powrotu do menu oraz  
+wyjścia gry i finalnego okna po skończeniu gry.
 ```
 
 Klasa **gamestate.h**
 ```
-Klasa gamestate.h jest jedną z dwóch części odpowiadających za działanie samej gry, odpowiada ona za trzymanie wszelkich ważnych informacji tak jak stanu gry (czyli czy gra jest wygrana), ilości prób odkryć kart w trakcie gry i ilościi aktualnie odkrytych kart. Odpowiada ona również za losowe generowanie i rozkładanie kart po planszy oraz za restartowanie stanu gry po powrocie do menu głównego.
+Klasa gamestate.h jest jedną z dwóch części odpowiadających za działanie samej gry, odpowiada ona za trzymanie  
+wszelkich ważnych informacji tak jak stanu gry (czyli czy gra jest wygrana), ilości prób odkryć kart w trakcie  
+gry i ilościi aktualnie odkrytych kart. Odpowiada ona również za losowe generowanie i rozkładanie kart po  
+planszy oraz za restartowanie stanu gry po powrocie do menu głównego.
 ```
 
 Klasa **gameboard.h**
 ```
-Klasa gameboard.h jest drugą z klas odpowiadającydch za działanie gry, przechowuje ona wszystkie karty w wektorze kart  
-oraz zajmuje się poleceniami z nimi związanymi jak na przykład odkrywanie czy zakrywanie kart. Klasa ta dziedziczy z  
-klasy card.h.
+Klasa gameboard.h jest drugą z klas odpowiadającydch za działanie gry, przechowuje ona wszystkie karty w  
+wektorze kart oraz zajmuje się poleceniami z nimi związanymi jak na przykład odkrywanie czy zakrywanie kart. 
+Klasa ta dziedziczy z klasy card.h.
 ```
 
 Klasa **card.h**
