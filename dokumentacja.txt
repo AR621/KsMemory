@@ -6,6 +6,7 @@ grę wygrywa się po odkryciu całej talii rozłożonej na planszy.
 
 Funkcjonalność programu:
 - Menu główne.
+- Adaptacja programu do zmiany rozdzielczości - np rozciągniecia proigramu na cały akran.
 - Plansza z 15 parami różnych kart.
 - Po odkryciu dwóch kart gra przez około sekundę wyświetla je po czym jeśli do siebie pasują zostawia je odkre 
 do końca gry natomiast jeśli są to niepasujące karty to je ponownie zakrywa.
