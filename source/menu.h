@@ -8,7 +8,7 @@
 class menu
 {
 private:
-	//Menu
+	//Main menu
 	sf::Font font;
 	sf::Text title;
 	sf::Text welcome;

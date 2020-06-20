@@ -4,7 +4,7 @@
 menu::menu()
 {
 	displayMenu = true;
-	//MENU
+	//MAIN MENU
 	//Text format
 	if (!font.loadFromFile("Res/Fonts/Roboto-Black.ttf"))
 		printf("Error while loading font from file\n");
