@@ -17,7 +17,7 @@ private:
 public:
 	int GetBoardWidth();
 	void Generate_Board(gamestate);
-	void Debug(int);//Shows in console card id placement for easrie bug checking
+	//void Debug(int);//Shows in console card id placement for easier bug checking
 	void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 	std::vector<card> ReturnBoard();
 	int ClickCheck(int, int, int, float[]);
