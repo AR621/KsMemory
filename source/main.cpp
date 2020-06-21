@@ -15,7 +15,7 @@ int main()
 	{
 		sf::Event event;
 		Ksmemory.UpdateWinSize(window);	
-		Ksmemory.HandleMouseClicks(window, event);
+		Ksmemory.HandleEvents(window, event);
 		Ksmemory.Display(window);
 	}
 	return 0;
