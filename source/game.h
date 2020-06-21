@@ -18,7 +18,7 @@ public:
 	~game();
 	//Game code
 	void UpdateWinSize(sf::RenderWindow&);
-	void HandleMouseClicks(sf::RenderWindow&, sf::Event);
+	int HandleMouseClicks(sf::RenderWindow&, sf::Event);
 	void Display(sf::RenderWindow&);
 	//Getters
 	float GetWinX();

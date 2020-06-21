@@ -21,7 +21,7 @@ void game::UpdateWinSize(sf::RenderWindow& window)
 	dimensions[1] = window.getSize().y;
 }	
 
-void game::HandleMouseClicks(sf::RenderWindow& window, sf::Event event)
+int game::HandleMouseClicks(sf::RenderWindow& window, sf::Event event)
 {
 	if (Menu.IsInMenu())
 		while (window.pollEvent(event))
@@ -77,29 +77,40 @@ void game::HandleMouseClicks(sf::RenderWindow& window, sf::Event event)
 					}
 				}
 			case sf::Event::KeyPressed:
-				if (event.key.code == sf::Keyboard::Escape)
+				if (event.key.code == sf::Keyboard::Escape)//popup window
 				{
-					Menu.drawPopup(window);
-					window.display();
-					int popupClicked = 0;
-					while (popupClicked != 1)
+					bool popup = true;
+					while (popup)
 					{
-						sf::Vector2i Position;
-						if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
-							Position = sf::Mouse::getPosition(window);
-						popupClicked = Menu.PopupClickCheck(Position.x, Position.y, dimensions);
-						if (popupClicked == 2)
+						Menu.drawPopup(window);
+						window.display();
+						int popupClicked = 0;
+						while (popupClicked != 1)
 						{
-							Menu.ToMenu();
-							State.ResetGame();
-							break;
+							sf::Vector2i Position;
+							if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+								Position = sf::Mouse::getPosition(window);
+							popupClicked = Menu.PopupClickCheck(Position.x, Position.y, dimensions);
+							if (popupClicked == 1)
+								popup = false;
+							if (popupClicked == 2)
+							{
+								Menu.ToMenu();
+								State.ResetGame();
+								popup = false;
+								break;
+							}
+							if (popupClicked == 3)
+							{
+								window.close();
+								return 0;
+							}
 						}
-						if (popupClicked == 3)
-							;
 					}
 				}
 			}
 		}
+	return 0;
 }
 
 void game::Display(sf::RenderWindow& window)
