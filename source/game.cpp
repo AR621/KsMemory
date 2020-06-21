@@ -21,7 +21,7 @@ void game::UpdateWinSize(sf::RenderWindow& window)
 	dimensions[1] = window.getSize().y;
 }	
 
-int game::HandleMouseClicks(sf::RenderWindow& window, sf::Event event)
+int game::HandleEvents(sf::RenderWindow& window, sf::Event event)
 {
 	if (Menu.IsInMenu())
 		while (window.pollEvent(event))
