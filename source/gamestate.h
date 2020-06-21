@@ -20,18 +20,18 @@ public:
 	gamestate();
 	~gamestate();
 	void GamestateReset();
-	bool Check_If_Id_Free(int);
-	void Decrement(int);
+	bool Check_If_Id_Free(int);//To avoid more than two card os same id
+	void Decrement(int);//Decrements unique_id_pool array
 	int GetRoll_count();
-	int Generate_Id();
+	int Generate_Id();//both functions used in random id generation
 	int GetNumOfCards();
 	void SetNumOfCards(int);
 	void CheckGameState(gameboard);
-	int state();
-	void SaveRevealedCard(int);
-	bool CheckCards();
-	bool ToReset();
-	void ResetGame();
+	int state();//returns state of the game
+	void SaveRevealedCard(int);//Saces card id for comparison
+	bool CheckCards();//Check if cards match
+	bool ToReset();//set Restart to true
+	void ResetGame();//resets the game state
 	int getScore();
 };
 #endif
