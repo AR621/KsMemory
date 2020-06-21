@@ -5,18 +5,18 @@ Prosta gra przypominająca grę w memory polegająca na odrkywaniu kolejnych kar
 
 Funkcjonalność programu:
 - Menu główne.
-- Adaptacja programu do zmiany rozdzielczości - np rozciągniecia proigramu na cały akran.
+- Adaptacja programu do zmiany rozdzielczości - np rozciągnięcia programu na cały akran.
 - Plansza z 15 parami różnych kart.
 - Po odkryciu dwóch kart gra przez około sekundę wyświetla je po czym jeśli do siebie pasują zostawia je odkryte 
-do końca gry natomiast jeśli są to niepasujące do siebie karty to je ponownie zakrywa.
-- Po odkryciu wszystkich par gra się zakańcza i wyświetla nasz wynik (czas gry oraz ilość nietrafionych odkryć).
-- Gra zlicza ilość odkryć i po zakończeniu wyświetla ilość nietrafionych przez nas odkryć oraz czas gry.
+do końca gry, natomiast jeśli są to niepasujące do siebie karty to je ponownie zakrywa.
+- Po odkryciu wszystkich par kart gra się kończy.  
+- Gra zlicza ilość odkryć i po zakończeniu wyświetla ilość nietrafionych przez nas odkryć oraz czas jaki nam zajęła rozgrywka.
 
-Jak zagrać?
-Pobieramy folder lub archiwum odpowiednie dla systemu w zależności czy jesteśmy na systemie UNIX lub windows. Grę odpalamy plikiem .exe/.bin w zależnośc od wersji jakiej pobraliśmy.
+Jak zagrać?  
+Pobieramy folder lub archiwum. Grę uruchamiamy przy pomocy komendy "./Ksmemory". Ważne jest aby nie zmieniać pobranej struktury ponieważ inaczej istnieje możliwość niewczytania tekstur oraz czcionek.
 
 # Opis poszczegolnych klas:
-*Opis poszczególnych funkcji w klasach (których nazwa ich wystarczająco nie opisuje) można znaleźć w samych plikach nagłówkowych klas
+*Opis poszczególnych funkcji w klasach (w przypadku gdy ich nazwa wystarczająco je nie opisuje) można znaleźć w samych plikach nagłówkowych klas
 
 Klasa **game.h**
 ```
@@ -41,13 +41,13 @@ i rozkładanie kart po planszy oraz za restartowanie stanu gry po powrocie do me
 Klasa **gameboard.h**
 ```
 Klasa gameboard.h jest drugą z klas odpowiadającydch za działanie gry, przechowuje ona wszystkie karty w  
-wektorze kart(obiektu card z klasy card.h) oraz zajmuje się poleceniami z nimi związanymi jak na przykład  
+wektorze kart (obiektu card z klasy card.h) oraz zajmuje się poleceniami z nimi związanymi jak na przykład  
 odkrywanie czy zakrywanie kart. Klasa ta dziedziczy z klasy card.h.
 ```
 
 Klasa **card.h**
 ```
-Klasa card.h jest odpowiedzialna za pojedyńczę karty na planszy, przetrezymuje ona informacje o ich  
+Klasa card.h jest odpowiedzialna za pojedyńcze karty na planszy, przetrzymuje ona informacje o ich  
 stanie, ich unikalnym numerze id - aby rozponać czy przy odkryciu została odkryta karta pasująca do niej -  
-oraz wszystkie funkcje związane z obsługą tych zmiennych.
+oraz obsługuje wszystkie funkcje związane z tymi zmiennymi.
 ```
