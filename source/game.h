@@ -17,9 +17,9 @@ public:
 	game();
 	~game();
 	//Game code
-	void UpdateWinSize(sf::RenderWindow&);
-	int HandleMouseClicks(sf::RenderWindow&, sf::Event);
-	void Display(sf::RenderWindow&);
+	void UpdateWinSize(sf::RenderWindow&);//Updates dimensions array for resize window functionality
+	int HandleEvents(sf::RenderWindow&, sf::Event);//Most of the game code for handling events
+	void Display(sf::RenderWindow&);//Handles display on window
 	//Getters
 	float GetWinX();
 	float GetWinY();
