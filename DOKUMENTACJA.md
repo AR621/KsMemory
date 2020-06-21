@@ -47,7 +47,7 @@ odkrywanie czy zakrywanie kart. Klasa ta dziedziczy z klasy card.h.
 
 Klasa **card.h**
 ```
-Klasa card.h jest odpowiedzialna za pojedyńczę karty na planszy, przetrezymuje ona informacje o ich stanie,  
-ich unikalnym numerze id - aby rozponać czy przy odkryciu została odkryta karta pasująca do niej - oraz  
-wszystkie funkcje związane z obsługą tych zmiennych.
+Klasa card.h jest odpowiedzialna za pojedyńczę karty na planszy, przetrezymuje ona informacje o ich  
+stanie, ich unikalnym numerze id - aby rozponać czy przy odkryciu została odkryta karta pasująca do niej -  
+oraz wszystkie funkcje związane z obsługą tych zmiennych.
 ```
