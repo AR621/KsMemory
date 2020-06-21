@@ -16,15 +16,14 @@ private:
 	std::vector<int> RevealedNum;
 public:
 	int GetBoardWidth();
-	void SetBoardWidth(int);
 	void Generate_Board(gamestate);
-	void Debug(int);
+	void Debug(int);//Shows in console card id placement for easrie bug checking
 	void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 	std::vector<card> ReturnBoard();
 	int ClickCheck(int, int, int, float[]);
-	void SaveRevealedCard(int);
+	void SaveRevealedCard(int);//Saves revealed card position on the board
 	void reveal(int);
-	void resolve(bool);
+	void resolve(bool);//Hides or keeps revealed currently revealed pair of card depending on bool input
 	void LoadTextures(gamestate);
 };
 #endif
