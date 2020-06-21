@@ -34,11 +34,11 @@ public:
 	sf::Text Score();
 	sf::Text Return2Menu();
 	void setScore(int);
-	bool IsInMenu();//Check if in menu
+	bool IsInMenu();//Checks if in menu
 	void ToMenu();//Sets displayMenu to true
 	void StartGame();//Sets displayMenu to false
 	void drawPopup(sf::RenderWindow&);
-	int MenuClickCheck(int, int, float[3]);//All clickChecks functions check if proper area is clicke on the screen
+	int MenuClickCheck(int, int, float[3]);//All clickChecks functions check if proper area is clicked on the screen
 	int PopupClickCheck(int, int, float[3]);
 	int EndClickCheck(int, int, float[3]);
 };
