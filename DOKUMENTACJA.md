@@ -1,8 +1,7 @@
 # Temat projektu: Gra memory
 
 Opis:
-Prosta gra przypominająca grę w memory polegająca na odrkywaniu kolejnych kart i znajdowaniu ich pasujących par,
-grę wygrywa się po odkryciu całej talii rozłożonej na planszy.
+Prosta gra przypominająca grę w memory polegająca na odrkywaniu kolejnych kart i znajdowaniu ich pasujących par, grę wygrywa się po odkryciu całej talii rozłożonej na planszy.
 
 Funkcjonalność programu:
 - Menu główne.
@@ -14,10 +13,10 @@ do końca gry natomiast jeśli są to niepasujące do siebie karty to je ponowni
 - Gra zlicza ilość odkryć i po zakończeniu wyświetla ilość nietrafionych przez nas odkryć oraz czas gry.
 
 Jak zagrać?
-Pobieramy folder lub archiwum odpowiednie dla systemu w zależności czy jesteśmy na systemie UNIX lub windows.
-Grę odpalamy plikiem .exe/.bin w zależnośc od wersji jakiej pobraliśmy.
+Pobieramy folder lub archiwum odpowiednie dla systemu w zależności czy jesteśmy na systemie UNIX lub windows. Grę odpalamy plikiem .exe/.bin w zależnośc od wersji jakiej pobraliśmy.
 
 # Opis poszczegolnych klas:
+*Opis poszczególnych funkcji w klasach (których nazwa ich wystarczająco nie opisuje) można znaleźć w samych plikach nagłówkowych klas
 
 Klasa **game.h**
 ```
@@ -33,20 +32,22 @@ wyjścia gry i finalnego okna po skończeniu gry.
 
 Klasa **gamestate.h**
 ```
-Klasa gamestate.h jest jedną z dwóch części odpowiadających za działanie samej gry, odpowiada ona za trzymanie  
-wszelkich ważnych informacji tak jak stanu gry (czyli czy gra jest wygrana), ilości prób odkryć kart w trakcie  
-gry i ilościi aktualnie odkrytych kart. Odpowiada ona również za losowe generowanie i rozkładanie kart po  
-planszy oraz za restartowanie stanu gry po powrocie do menu głównego.
+Klasa gamestate.h jest jedną z dwóch części odpowiadających za działanie samej gry, odpowiada ona za  
+przetrzymanie wszelkich ważnych informacji tak jak stanu gry (czyli czy gra jest wygrana), ilości prób  
+odkryć kart w trakcie gry i ilościi aktualnie odkrytych kart. Odpowiada ona również za losowe generowanie  
+i rozkładanie kart po planszy oraz za restartowanie stanu gry po powrocie do menu głównego.
 ```
 
 Klasa **gameboard.h**
 ```
 Klasa gameboard.h jest drugą z klas odpowiadającydch za działanie gry, przechowuje ona wszystkie karty w  
-wektorze kart oraz zajmuje się poleceniami z nimi związanymi jak na przykład odkrywanie czy zakrywanie kart. 
-Klasa ta dziedziczy z klasy card.h.
+wektorze kart(obiektu card z klasy card.h) oraz zajmuje się poleceniami z nimi związanymi jak na przykład  
+odkrywanie czy zakrywanie kart. Klasa ta dziedziczy z klasy card.h.
 ```
 
 Klasa **card.h**
 ```
-
+Klasa card.h jest odpowiedzialna za pojedyńczę karty na planszy, przetrezymuje ona informacje o ich stanie,  
+ich unikalnym numerze id - aby rozponać czy przy odkryciu została odkryta karta pasująca do niej - oraz  
+wszystkie funkcje związane z obsługą tych zmiennych.
 ```
