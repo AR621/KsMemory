@@ -1,5 +1,5 @@
 # KsMemory
-Projekt PO na drugi semestr - gra typu memory.
+Old project for object programming class - my first contact with OOP
 
 # Spis treści:
 -**UNIX** lub **UNIX.zip** - zawiera gotową wersje gry dla systemu UNIX.  
