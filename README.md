@@ -1,14 +1,21 @@
 # KsMemory
-Old project for object programming class - my first contact with OOP
+Old project for object programming course in collage - my first contact with OOP
 
-# Spis treści:
--**UNIX** lub **UNIX.zip** - zawiera gotową wersje gry dla systemu UNIX.  
--**source** zawiera cały kod gry.  
--**DOKUMENTACJA.md** - zawiera krótki opis projektu oraz jego funkcjonalność.
+![main menu](
+https://github.com/AR621/KsMemory/blob/master/showcase/main_menu.png?raw=true  "main menu")
 
-# Instalacja
-Program wykorzystuje biblioteke [SFML](https://www.sfml-dev.org/index.php) zatem do działania gry jest niezbędna jej instalacja jeśli nie występuje na systemie docelowym. Znajdziemy ją w repozytoriach większości dystrybucji linux, oto przykłady jej instalacji:
+<p>
+  <img src="https://github.com/AR621/KsMemory/blob/master/showcase/gameplay.png?raw=true" height="250" />
+  <img src="https://github.com/AR621/KsMemory/blob/master/showcase/gameover.png?raw=true" height="250" />
+</p>
 
+
+# Contents:
+-**UNIX** lub **UNIX.zip** - Ready executable for unix systems
+-**source** - all the source files
+
+# Usage
+Game depends on SFML libraries [SFML](https://www.sfml-dev.org/index.php) thus it is equired to install them to properly play the game. We can find SFML libraries in most linux repos:
 apt:
 ```
 apt-get instal libsfml-dev
