@@ -11,11 +11,13 @@ https://github.com/AR621/KsMemory/blob/master/showcase/main_menu.png?raw=true  "
 
 
 # Contents:
--**UNIX** lub **UNIX.zip** - Ready executable for unix systems
+-**UNIX** / **UNIX.zip** - Ready executable for unix systems
+
 -**source** - all the source files
 
 # Usage
 Game depends on SFML libraries [SFML](https://www.sfml-dev.org/index.php) thus it is equired to install them to properly play the game. We can find SFML libraries in most linux repos:
+
 apt:
 ```
 apt-get instal libsfml-dev
